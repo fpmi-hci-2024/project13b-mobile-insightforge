@@ -11,7 +11,7 @@ import SwiftUI
 struct InsightforgeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
         }
     }
 }

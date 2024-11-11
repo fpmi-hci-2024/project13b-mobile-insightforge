@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		760A38612CE0E945005C853C /* InsightforgeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760A38602CE0E945005C853C /* InsightforgeApp.swift */; };
-		760A38632CE0E945005C853C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760A38622CE0E945005C853C /* ContentView.swift */; };
 		760A38652CE0E947005C853C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 760A38642CE0E947005C853C /* Assets.xcassets */; };
 		760A38682CE0E947005C853C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 760A38672CE0E947005C853C /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +15,6 @@
 /* Begin PBXFileReference section */
 		760A385D2CE0E945005C853C /* Insightforge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insightforge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		760A38602CE0E945005C853C /* InsightforgeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightforgeApp.swift; sourceTree = "<group>"; };
-		760A38622CE0E945005C853C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		760A38642CE0E947005C853C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		760A38672CE0E947005C853C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,8 +52,6 @@
 				760A38702CE0EBA0005C853C /* PresentationLayer */,
 				760A386F2CE0EB97005C853C /* BuisnessLayer */,
 				760A386E2CE0EB86005C853C /* ApplicationLayer */,
-				760A38602CE0E945005C853C /* InsightforgeApp.swift */,
-				760A38622CE0E945005C853C /* ContentView.swift */,
 			);
 			path = Insightforge;
 			sourceTree = "<group>";
@@ -118,6 +114,7 @@
 		760A38732CE0EC02005C853C /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				760A38602CE0E945005C853C /* InsightforgeApp.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -249,7 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				760A38632CE0E945005C853C /* ContentView.swift in Sources */,
 				760A38612CE0E945005C853C /* InsightforgeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

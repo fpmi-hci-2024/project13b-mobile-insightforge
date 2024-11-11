@@ -10,6 +10,21 @@
 		760A38612CE0E945005C853C /* InsightforgeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760A38602CE0E945005C853C /* InsightforgeApp.swift */; };
 		760A38652CE0E947005C853C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 760A38642CE0E947005C853C /* Assets.xcassets */; };
 		760A38682CE0E947005C853C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 760A38672CE0E947005C853C /* Preview Assets.xcassets */; };
+		769B44C52CE1E65200C50B9F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44C42CE1E65200C50B9F /* Route.swift */; };
+		769B44C72CE1EA5400C50B9F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44C62CE1EA5400C50B9F /* Movie.swift */; };
+		769B44C92CE1EAD500C50B9F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44C82CE1EAD500C50B9F /* Router.swift */; };
+		769B44D12CE1EDC000C50B9F /* LaunchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44D02CE1EDC000C50B9F /* LaunchAssembly.swift */; };
+		769B44D32CE1EDD100C50B9F /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44D22CE1EDD100C50B9F /* LaunchViewModel.swift */; };
+		769B44D52CE1EDDC00C50B9F /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44D42CE1EDDC00C50B9F /* LaunchView.swift */; };
+		769B44D72CE1F46F00C50B9F /* AuthAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44D62CE1F46F00C50B9F /* AuthAssembly.swift */; };
+		769B44D92CE1F47C00C50B9F /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44D82CE1F47C00C50B9F /* AuthViewModel.swift */; };
+		769B44DB2CE1F48500C50B9F /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44DA2CE1F48500C50B9F /* AuthView.swift */; };
+		769B44DD2CE1F4A400C50B9F /* LoginAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44DC2CE1F4A400C50B9F /* LoginAssembly.swift */; };
+		769B44DF2CE1F4BB00C50B9F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44DE2CE1F4BB00C50B9F /* LoginViewModel.swift */; };
+		769B44E12CE1F4CC00C50B9F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44E02CE1F4CC00C50B9F /* LoginView.swift */; };
+		769B44E92CE1F4FB00C50B9F /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44E82CE1F4FB00C50B9F /* HomeAssembly.swift */; };
+		769B44EB2CE1F50600C50B9F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44EA2CE1F50600C50B9F /* HomeViewModel.swift */; };
+		769B44ED2CE1F50F00C50B9F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44EC2CE1F50F00C50B9F /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +32,22 @@
 		760A38602CE0E945005C853C /* InsightforgeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightforgeApp.swift; sourceTree = "<group>"; };
 		760A38642CE0E947005C853C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		760A38672CE0E947005C853C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		769B44C42CE1E65200C50B9F /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		769B44C62CE1EA5400C50B9F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		769B44C82CE1EAD500C50B9F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		769B44D02CE1EDC000C50B9F /* LaunchAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAssembly.swift; sourceTree = "<group>"; };
+		769B44D22CE1EDD100C50B9F /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		769B44D42CE1EDDC00C50B9F /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		769B44D62CE1F46F00C50B9F /* AuthAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAssembly.swift; sourceTree = "<group>"; };
+		769B44D82CE1F47C00C50B9F /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		769B44DA2CE1F48500C50B9F /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		769B44DC2CE1F4A400C50B9F /* LoginAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembly.swift; sourceTree = "<group>"; };
+		769B44DE2CE1F4BB00C50B9F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		769B44E02CE1F4CC00C50B9F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		769B44E82CE1F4FB00C50B9F /* HomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
+		769B44EA2CE1F50600C50B9F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		769B44EC2CE1F50F00C50B9F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		769B44EE2CE2022E00C50B9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,8 +80,9 @@
 		760A385F2CE0E945005C853C /* Insightforge */ = {
 			isa = PBXGroup;
 			children = (
-				760A38702CE0EBA0005C853C /* PresentationLayer */,
+				769B44EE2CE2022E00C50B9F /* Info.plist */,
 				760A386F2CE0EB97005C853C /* BuisnessLayer */,
+				760A38702CE0EBA0005C853C /* PresentationLayer */,
 				760A386E2CE0EB86005C853C /* ApplicationLayer */,
 			);
 			path = Insightforge;
@@ -115,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				760A38602CE0E945005C853C /* InsightforgeApp.swift */,
+				769B44C42CE1E65200C50B9F /* Route.swift */,
+				769B44C82CE1EAD500C50B9F /* Router.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -129,6 +163,10 @@
 		760A38752CE0EC25005C853C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				769B44CF2CE1ED8A00C50B9F /* Home */,
+				769B44CD2CE1ED6E00C50B9F /* Login */,
+				769B44CC2CE1ED5300C50B9F /* Auth */,
+				769B44CA2CE1ED3300C50B9F /* Launch */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -150,6 +188,7 @@
 		760A38782CE0ECA5005C853C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				769B44C62CE1EA5400C50B9F /* Movie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,6 +213,46 @@
 				760A38642CE0E947005C853C /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		769B44CA2CE1ED3300C50B9F /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				769B44D02CE1EDC000C50B9F /* LaunchAssembly.swift */,
+				769B44D22CE1EDD100C50B9F /* LaunchViewModel.swift */,
+				769B44D42CE1EDDC00C50B9F /* LaunchView.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		769B44CC2CE1ED5300C50B9F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				769B44D62CE1F46F00C50B9F /* AuthAssembly.swift */,
+				769B44D82CE1F47C00C50B9F /* AuthViewModel.swift */,
+				769B44DA2CE1F48500C50B9F /* AuthView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		769B44CD2CE1ED6E00C50B9F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				769B44DC2CE1F4A400C50B9F /* LoginAssembly.swift */,
+				769B44DE2CE1F4BB00C50B9F /* LoginViewModel.swift */,
+				769B44E02CE1F4CC00C50B9F /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		769B44CF2CE1ED8A00C50B9F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				769B44E82CE1F4FB00C50B9F /* HomeAssembly.swift */,
+				769B44EA2CE1F50600C50B9F /* HomeViewModel.swift */,
+				769B44EC2CE1F50F00C50B9F /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,7 +325,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				769B44EB2CE1F50600C50B9F /* HomeViewModel.swift in Sources */,
+				769B44C92CE1EAD500C50B9F /* Router.swift in Sources */,
 				760A38612CE0E945005C853C /* InsightforgeApp.swift in Sources */,
+				769B44C52CE1E65200C50B9F /* Route.swift in Sources */,
+				769B44D32CE1EDD100C50B9F /* LaunchViewModel.swift in Sources */,
+				769B44E92CE1F4FB00C50B9F /* HomeAssembly.swift in Sources */,
+				769B44D12CE1EDC000C50B9F /* LaunchAssembly.swift in Sources */,
+				769B44C72CE1EA5400C50B9F /* Movie.swift in Sources */,
+				769B44DB2CE1F48500C50B9F /* AuthView.swift in Sources */,
+				769B44D52CE1EDDC00C50B9F /* LaunchView.swift in Sources */,
+				769B44DF2CE1F4BB00C50B9F /* LoginViewModel.swift in Sources */,
+				769B44D72CE1F46F00C50B9F /* AuthAssembly.swift in Sources */,
+				769B44E12CE1F4CC00C50B9F /* LoginView.swift in Sources */,
+				769B44D92CE1F47C00C50B9F /* AuthViewModel.swift in Sources */,
+				769B44DD2CE1F4A400C50B9F /* LoginAssembly.swift in Sources */,
+				769B44ED2CE1F50F00C50B9F /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,10 +477,10 @@
 				DEVELOPMENT_TEAM = YV896RSVH3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Insightforge/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Insightforge;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -418,10 +512,10 @@
 				DEVELOPMENT_TEAM = YV896RSVH3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Insightforge/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Insightforge;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;

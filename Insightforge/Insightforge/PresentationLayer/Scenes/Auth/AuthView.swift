@@ -28,6 +28,12 @@ struct AuthView: View {
                 Text("Sign")
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background() {
+            Color(.EBF_2_EB)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea(.all)
+        }
     }
 }
 

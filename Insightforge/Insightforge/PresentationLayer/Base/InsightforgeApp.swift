@@ -23,6 +23,8 @@ struct InsightforgeApp: App {
                             LoginAssembly().build(isLogin: isLogin)
                         case .home:
                             HomeAssembly().build()
+                        case .tabBar:
+                            TabBarAssembly().build()
                         }
                     }
             }

@@ -17,10 +17,10 @@ class LoginViewModel: ObservableObject {
     }
     
     func showHome() {
-        router.showHome()
+        router.showTabBar()
     }
     
     func showSign() {
-        isLogin = false
+        isLogin.toggle()
     }
 }

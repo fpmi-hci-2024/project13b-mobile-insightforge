@@ -11,4 +11,5 @@ enum Route: Hashable {
     case auth
     case authLog(Bool)
     case home
+    case tabBar
 }

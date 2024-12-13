@@ -12,8 +12,13 @@
 		760A38682CE0E947005C853C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 760A38672CE0E947005C853C /* Preview Assets.xcassets */; };
 		7663507C2CE4E07100DCB46F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7663507B2CE4E07100DCB46F /* Lottie */; };
 		766350832CE4E22300DCB46F /* LaunchLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = 766350822CE4E22300DCB46F /* LaunchLoading.json */; };
+		768CCBE82D0C66F50025D2C0 /* ContinueActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768CCBE72D0C66F50025D2C0 /* ContinueActionButton.swift */; };
+		768CCBEB2D0C7E110025D2C0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768CCBEA2D0C7E110025D2C0 /* TabBar.swift */; };
+		768CCBED2D0C7F120025D2C0 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768CCBEC2D0C7F120025D2C0 /* TabBarViewModel.swift */; };
+		768CCBEF2D0C7F1F0025D2C0 /* TabBarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768CCBEE2D0C7F1F0025D2C0 /* TabBarAssembly.swift */; };
+		768CCBF12D0C85440025D2C0 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768CCBF02D0C85440025D2C0 /* BookView.swift */; };
 		769B44C52CE1E65200C50B9F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44C42CE1E65200C50B9F /* Route.swift */; };
-		769B44C72CE1EA5400C50B9F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44C62CE1EA5400C50B9F /* Movie.swift */; };
+		769B44C72CE1EA5400C50B9F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44C62CE1EA5400C50B9F /* Book.swift */; };
 		769B44C92CE1EAD500C50B9F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44C82CE1EAD500C50B9F /* Router.swift */; };
 		769B44D12CE1EDC000C50B9F /* LaunchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44D02CE1EDC000C50B9F /* LaunchAssembly.swift */; };
 		769B44D32CE1EDD100C50B9F /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44D22CE1EDD100C50B9F /* LaunchViewModel.swift */; };
@@ -35,8 +40,13 @@
 		760A38642CE0E947005C853C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		760A38672CE0E947005C853C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		766350822CE4E22300DCB46F /* LaunchLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaunchLoading.json; sourceTree = "<group>"; };
+		768CCBE72D0C66F50025D2C0 /* ContinueActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueActionButton.swift; sourceTree = "<group>"; };
+		768CCBEA2D0C7E110025D2C0 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		768CCBEC2D0C7F120025D2C0 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		768CCBEE2D0C7F1F0025D2C0 /* TabBarAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarAssembly.swift; sourceTree = "<group>"; };
+		768CCBF02D0C85440025D2C0 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		769B44C42CE1E65200C50B9F /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
-		769B44C62CE1EA5400C50B9F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		769B44C62CE1EA5400C50B9F /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		769B44C82CE1EAD500C50B9F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		769B44D02CE1EDC000C50B9F /* LaunchAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAssembly.swift; sourceTree = "<group>"; };
 		769B44D22CE1EDD100C50B9F /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
@@ -122,8 +132,8 @@
 		760A38702CE0EBA0005C853C /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				760A38752CE0EC25005C853C /* Scenes */,
 				760A38742CE0EC15005C853C /* CustomViews */,
+				760A38752CE0EC25005C853C /* Scenes */,
 				760A38732CE0EC02005C853C /* Base */,
 			);
 			path = PresentationLayer;
@@ -161,6 +171,8 @@
 		760A38742CE0EC15005C853C /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				768CCBE72D0C66F50025D2C0 /* ContinueActionButton.swift */,
+				768CCBF02D0C85440025D2C0 /* BookView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -168,6 +180,7 @@
 		760A38752CE0EC25005C853C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				768CCBE92D0C7DF90025D2C0 /* TabBar */,
 				769B44CF2CE1ED8A00C50B9F /* Home */,
 				769B44CD2CE1ED6E00C50B9F /* Login */,
 				769B44CC2CE1ED5300C50B9F /* Auth */,
@@ -193,7 +206,7 @@
 		760A38782CE0ECA5005C853C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				769B44C62CE1EA5400C50B9F /* Movie.swift */,
+				769B44C62CE1EA5400C50B9F /* Book.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,6 +247,16 @@
 				766350822CE4E22300DCB46F /* LaunchLoading.json */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		768CCBE92D0C7DF90025D2C0 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				768CCBEE2D0C7F1F0025D2C0 /* TabBarAssembly.swift */,
+				768CCBEC2D0C7F120025D2C0 /* TabBarViewModel.swift */,
+				768CCBEA2D0C7E110025D2C0 /* TabBar.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		769B44CA2CE1ED3300C50B9F /* Launch */ = {
@@ -356,14 +379,19 @@
 				769B44EB2CE1F50600C50B9F /* HomeViewModel.swift in Sources */,
 				769B44C92CE1EAD500C50B9F /* Router.swift in Sources */,
 				760A38612CE0E945005C853C /* InsightforgeApp.swift in Sources */,
+				768CCBE82D0C66F50025D2C0 /* ContinueActionButton.swift in Sources */,
 				769B44C52CE1E65200C50B9F /* Route.swift in Sources */,
 				769B44D32CE1EDD100C50B9F /* LaunchViewModel.swift in Sources */,
 				769B44E92CE1F4FB00C50B9F /* HomeAssembly.swift in Sources */,
 				769B44D12CE1EDC000C50B9F /* LaunchAssembly.swift in Sources */,
-				769B44C72CE1EA5400C50B9F /* Movie.swift in Sources */,
+				769B44C72CE1EA5400C50B9F /* Book.swift in Sources */,
+				768CCBEB2D0C7E110025D2C0 /* TabBar.swift in Sources */,
 				769B44DB2CE1F48500C50B9F /* AuthView.swift in Sources */,
+				768CCBEF2D0C7F1F0025D2C0 /* TabBarAssembly.swift in Sources */,
+				768CCBF12D0C85440025D2C0 /* BookView.swift in Sources */,
 				769B44D52CE1EDDC00C50B9F /* LaunchView.swift in Sources */,
 				769B44DF2CE1F4BB00C50B9F /* LoginViewModel.swift in Sources */,
+				768CCBED2D0C7F120025D2C0 /* TabBarViewModel.swift in Sources */,
 				769B44D72CE1F46F00C50B9F /* AuthAssembly.swift in Sources */,
 				769B44E12CE1F4CC00C50B9F /* LoginView.swift in Sources */,
 				769B44D92CE1F47C00C50B9F /* AuthViewModel.swift in Sources */,

@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct BookView: View {
+    let book: Book
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Image(book.imageName)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(10)
+                .frame(height: 150)
+            Text(book.title)
+                .font(.headline)
+                .lineLimit(2)
+                .foregroundColor(.black)
+            Text(book.author)
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+            Text(book.price)
+                .font(.caption)
+                .foregroundColor(.secondary)
+        }
+        .frame(width: 120)
     }
 }
 
 #Preview {
-    BookView()
+    BookView(book: Book(title: "Book 1", author: "Author 1", price: "1.32", imageName: .default))
 }

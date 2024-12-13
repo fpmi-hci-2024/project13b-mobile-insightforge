@@ -12,7 +12,7 @@ struct AuthView: View {
     @State private var membersCount: Int = 100000
     
     var body: some View {
-        VStack(alignment: .center, spacing: 24) {
+        VStack(alignment: .center, spacing: 16) {
             Image(.launchAppIcon)
                 .resizable()
                 .scaledToFit()
@@ -34,7 +34,7 @@ struct AuthView: View {
                     
                     Text("\(membersCount)")
                         .font(.callout)
-                        .foregroundStyle(._108606)
+                        .foregroundStyle(.black)
                     
                     Text(" of us!")
                         .font(.callout)
@@ -42,26 +42,20 @@ struct AuthView: View {
             }
             .padding(.horizontal, 10)
             
-            
-            
-            Button(action: {
+            Spacer()
+        
+            ContinueActionButton(title: "Create Account", titleColor: .white, action: {
                 viewModel.showLogin(isLogin: true)
             })
-            {
-                Text("Login")
-            }
-            
-            Button(action: {
+        
+            ContinueActionButton(title: "I already have an account", gradient: Gradient(colors: [.FFE_9_D_2, .FFE_9_D_2]), action: {
                 viewModel.showLogin(isLogin: false)
             })
-            {
-                Text("Sign")
-            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.horizontal, 24)
         .background() {
-            Color(.EBF_2_EB)
+            Color(.C_48_A_4_B)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
         }

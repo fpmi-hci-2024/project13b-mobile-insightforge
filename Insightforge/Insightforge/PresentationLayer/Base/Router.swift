@@ -20,6 +20,10 @@ final class Router: ObservableObject {
         path.append(.authLog(isLogin))
     }
     
+    func showTabBar() {
+        path.append(.tabBar)
+    }
+    
     func showHome() {
         path.append(.home)
     }

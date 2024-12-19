@@ -29,6 +29,12 @@ struct LoginView: View {
             
             Spacer()
             
+            if let error = viewModel.errorMessage {
+                Text(error)
+                    .font(.body)
+                    .foregroundStyle(.red)
+                    .multilineTextAlignment(.center)
+            }
             Text(viewModel.isLogin ? "Log in to your account" : "Create your account")
                 .font(.body)
                 .foregroundStyle(.black)
@@ -130,7 +136,11 @@ struct LoginView: View {
             }
             
             ContinueActionButton(title: viewModel.isLogin ? "Log in" : "Create Account", titleColor: .white, action: {
-                viewModel.showHome()
+                viewModel.register(userName: username, password: password, email: email, completion: {
+                    if viewModel.errorMessage == nil {
+                        viewModel.showHome()
+                    }
+                })
             })
             
             HStack() {
@@ -152,6 +162,7 @@ struct LoginView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
         }
+        .navigationBarBackButtonHidden()
     }
 }
 

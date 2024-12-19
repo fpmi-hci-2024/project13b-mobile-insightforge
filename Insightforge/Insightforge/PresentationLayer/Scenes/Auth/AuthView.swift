@@ -45,11 +45,11 @@ struct AuthView: View {
             Spacer()
         
             ContinueActionButton(title: "Create Account", titleColor: .white, action: {
-                viewModel.showLogin(isLogin: true)
+                viewModel.showLogin(isLogin: false)
             })
         
             ContinueActionButton(title: "I already have an account", gradient: Gradient(colors: [.FFE_9_D_2, .FFE_9_D_2]), action: {
-                viewModel.showLogin(isLogin: false)
+                viewModel.showLogin(isLogin: true)
             })
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

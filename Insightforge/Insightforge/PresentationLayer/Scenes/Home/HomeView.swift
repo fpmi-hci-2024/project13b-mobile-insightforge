@@ -9,9 +9,125 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
+    
+    @FocusState var isSearchRequestActive: Bool
 
+    @State var searchRequest: String = ""
+
+    let categories = ["Novel", "Self-love", "Science", "Romance"]
+    let books = [
+        Book(title: "Catcher in the Rye", author: "J.D. Salinger", price: "$4.99", imageName: .default),
+        Book(title: "Someone Like You", author: "Roald Dahl", price: "$4.99", imageName: .default),
+        Book(title: "Lord of the Rings", author: "J.R.R. Tolkien", price: "$4.99", imageName: .default)
+    ]
+    
     var body: some View {
-        Text("Home")
+        NavigationView {
+            VStack(alignment: .leading, spacing: 20) {
+                // Header
+                HStack {
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("Hello, Vanya 👋")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        Text("What do you want to read today?")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    Spacer()
+                    Image(systemName: "bell.fill")
+                        .font(.title3)
+                        .foregroundColor(.black)
+                }
+                .padding(.horizontal)
+                
+                // Search Bar
+                HStack {
+                    ZStack {
+                        Text("Search here")
+                            .font(.callout)
+                            .foregroundStyle(.black)
+                            .opacity(searchRequest.isEmpty && !isSearchRequestActive ? 0.6 : 0)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                            .padding(.horizontal, 16)
+                        
+                        TextField(searchRequest, text: $searchRequest)
+                            .font(.callout)
+                            .foregroundStyle(.black)
+                            .colorMultiply(.white)
+                            .frame(alignment: .leading)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding(.horizontal, 16)
+                            .focused($isSearchRequestActive)
+                    }
+                    .frame(height: 52)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundStyle(.FFE_9_D_2)
+                    )
+                    
+                    Image(systemName: "slider.horizontal.3")
+                        .font(.title3)
+                        .padding(.leading, 8)
+                }
+                .padding(.horizontal)
+                
+                // Categories
+                ScrollView(.vertical, showsIndicators: false) {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 20) {
+                            ForEach(categories, id: \.self) { category in
+                                Text(category)
+                                    .font(.headline)
+                                    .foregroundColor(.black)
+                                    .padding(.bottom, 5)
+                                    .overlay(
+                                        Rectangle()
+                                            .frame(height: 2)
+                                            .foregroundColor(category == "Novel" ? .black : .clear),
+                                        alignment: .bottom
+                                    )
+                            }
+                        }
+                        .padding(.horizontal)
+                    }
+                    
+                    // Book List
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 20) {
+                            ForEach(books) { book in
+                                BookView(book: book)
+                            }
+                        }
+                        .padding(.horizontal)
+                    }
+                    
+                    Text("New Arrivals")
+                        .font(.headline)
+                        .padding(.horizontal)
+                    
+                    // New Arrivals Placeholder
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 20) {
+                            BookView(book: books[0])
+                            BookView(book: books[1])
+                        }
+                        .padding(.horizontal)
+                    }
+                }
+            }
+            .background() {
+                Color(.C_48_A_4_B)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea(.all)
+            }
+            .navigationBarHidden(true)
+        }
+        .background() {
+            Color(.C_48_A_4_B)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea(.all)
+        }
     }
 }
 

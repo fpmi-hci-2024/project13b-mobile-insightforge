@@ -9,28 +9,53 @@ import SwiftUI
 
 struct AuthView: View {
     @ObservedObject var viewModel: AuthViewModel
+    @State private var membersCount: Int = 100000
     
     var body: some View {
-        VStack(alignment: .center, spacing: 40) {
-            Text("Auth")
+        VStack(alignment: .center, spacing: 16) {
+            Image(.launchAppIcon)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
             
-            Button(action: {
-                viewModel.showLogin(isLogin: true)
-            })
-            {
-                Text("Login")
+            VStack(alignment: .center, spacing: 24) {
+                Text("Welcome to our world of books! Here, you’ll find the best selections, from classics to the latest releases! Sign up and discover endless literary adventures with personalized recommendations and exclusive discounts for our members.")
+                    .font(.callout)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(6)
+                
+                Image(.users)
+                    .resizable()
+                    .scaledToFit()
+                
+                HStack(spacing: .zero) {
+                    Text("There are already ")
+                        .font(.callout)
+                    
+                    Text("\(membersCount)")
+                        .font(.callout)
+                        .foregroundStyle(.black)
+                    
+                    Text(" of us!")
+                        .font(.callout)
+                }
             }
+            .padding(.horizontal, 10)
             
-            Button(action: {
+            Spacer()
+        
+            ContinueActionButton(title: "Create Account", titleColor: .white, action: {
                 viewModel.showLogin(isLogin: false)
             })
-            {
-                Text("Sign")
-            }
+        
+            ContinueActionButton(title: "I already have an account", gradient: Gradient(colors: [.FFE_9_D_2, .FFE_9_D_2]), action: {
+                viewModel.showLogin(isLogin: true)
+            })
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.horizontal, 24)
         .background() {
-            Color(.EBF_2_EB)
+            Color(.C_48_A_4_B)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
         }

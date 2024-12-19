@@ -32,7 +32,7 @@ struct LaunchView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(.all)
         .background() {
-            Color(.EBF_2_EB)
+            Color(.C_48_A_4_B)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
         }

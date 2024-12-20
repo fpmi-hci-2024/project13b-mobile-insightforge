@@ -32,6 +32,9 @@ extension ApiProtocol {
         request.httpMethod = method.rawValue
         request.timeoutInterval = 60
         
+        print(url)
+        print(request.httpMethod)
+        
         headers.forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }
         
         if method == .get {
@@ -44,6 +47,8 @@ extension ApiProtocol {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
+                let bodyString = String(data: request.httpBody!, encoding: .utf8)
+                print("HTTP Body: \(bodyString)")
             } catch let error {
                 print("Error: Can't create json request. Details: \(error)")
             }

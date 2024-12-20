@@ -10,7 +10,7 @@ import Alamofire
 
 enum SemensApi {
     case register(userName: String, password: String, email: String)
-    case login(userId: String, images: [String])
+    case login(userName: String, password: String)
 }
 
 extension SemensApi: ApiProtocol {
@@ -45,14 +45,14 @@ extension SemensApi: ApiProtocol {
         switch self {
         case .register(let userName, let password, let email):
             return [
-                "userName": userName,
+                "username": userName,
                 "password": password,
                 "email": email,
             ]
-        case .login(_, let images):
+        case .login(let userName, let password):
             return [
-                "images": images,
-                "similar_images": true
+                "username": userName,
+                "password": password
             ]
         }
     }
@@ -63,9 +63,10 @@ extension SemensApi: ApiProtocol {
             return [
                 "": ""
             ]
-        case .login(let userId, _):
+        case .login(_, _):
             return [
-                NetworkHeaders.xUserId: userId
+                "": ""
+//                NetworkHeaders.xUserId: userId
             ]
         }
     }

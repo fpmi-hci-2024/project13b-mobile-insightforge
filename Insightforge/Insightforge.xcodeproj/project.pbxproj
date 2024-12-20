@@ -42,6 +42,9 @@
 		769B44E92CE1F4FB00C50B9F /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44E82CE1F4FB00C50B9F /* HomeAssembly.swift */; };
 		769B44EB2CE1F50600C50B9F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44EA2CE1F50600C50B9F /* HomeViewModel.swift */; };
 		769B44ED2CE1F50F00C50B9F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B44EC2CE1F50F00C50B9F /* HomeView.swift */; };
+		76C2A1852D1573A900482CBC /* CartAssemly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C2A1842D1573A900482CBC /* CartAssemly.swift */; };
+		76C2A1872D1573B400482CBC /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C2A1862D1573B400482CBC /* CartViewModel.swift */; };
+		76C2A1892D1573BC00482CBC /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C2A1882D1573BC00482CBC /* CartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +83,9 @@
 		769B44EA2CE1F50600C50B9F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		769B44EC2CE1F50F00C50B9F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		769B44EE2CE2022E00C50B9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		76C2A1842D1573A900482CBC /* CartAssemly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartAssemly.swift; sourceTree = "<group>"; };
+		76C2A1862D1573B400482CBC /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		76C2A1882D1573BC00482CBC /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +206,7 @@
 		760A38752CE0EC25005C853C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				76C2A1832D15739100482CBC /* Cart */,
 				768CCBE92D0C7DF90025D2C0 /* TabBar */,
 				769B44CF2CE1ED8A00C50B9F /* Home */,
 				769B44CD2CE1ED6E00C50B9F /* Login */,
@@ -344,6 +351,16 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		76C2A1832D15739100482CBC /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				76C2A1842D1573A900482CBC /* CartAssemly.swift */,
+				76C2A1862D1573B400482CBC /* CartViewModel.swift */,
+				76C2A1882D1573BC00482CBC /* CartView.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -427,8 +444,11 @@
 				769B44EB2CE1F50600C50B9F /* HomeViewModel.swift in Sources */,
 				762916342D1455750022374F /* HTTPClient.swift in Sources */,
 				7629163D2D145EA20022374F /* LoginResponse.swift in Sources */,
+				76C2A1872D1573B400482CBC /* CartViewModel.swift in Sources */,
 				769B44C92CE1EAD500C50B9F /* Router.swift in Sources */,
+				76C2A1892D1573BC00482CBC /* CartView.swift in Sources */,
 				760A38612CE0E945005C853C /* InsightforgeApp.swift in Sources */,
+				76C2A1852D1573A900482CBC /* CartAssemly.swift in Sources */,
 				768CCBE82D0C66F50025D2C0 /* ContinueActionButton.swift in Sources */,
 				769B44C52CE1E65200C50B9F /* Route.swift in Sources */,
 				769B44D32CE1EDD100C50B9F /* LaunchViewModel.swift in Sources */,

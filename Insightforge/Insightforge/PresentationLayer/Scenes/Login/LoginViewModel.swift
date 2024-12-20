@@ -37,10 +37,37 @@ class LoginViewModel: ObservableObject {
                 self.isLoading = false
                 completion()
             case .failure(let failure):
+                if failure.message == "Registration succeed" {
+                    self.isLoading = false
+                    self.errorMessage = "Registration succeed. Go to login page and enter your name and password"
+                    completion()
+                } else {
+                    self.isLoading = false
+                    self.errorMessage = "Error: Can't occur registration. Details: \(failure)"
+                    print("Error: Can't occur registration. Details: \(failure)")
+                    completion()
+                }
+            }
+        }
+    }
+    
+    func login(userName: String, password: String, completion: @escaping () -> Void) {
+        httpClient.send(request: SemensApi.login(userName: userName, password: password).request, decoder: JSONDecoder()) { (result: Result<Int, ErrorModel>) in
+            switch result {
+            case .success(let code):
                 self.isLoading = false
-                self.errorMessage = "Error: Can't occur registration. Details: \(failure)"
-                print("Error: Can't occur registration. Details: \(failure)")
                 completion()
+            case .failure(let failure):
+                if failure.message == "Registration succeed" {
+                    self.isLoading = false
+                    self.errorMessage = "Registration succeed. Go to login page and enter your name and password"
+                    completion()
+                } else {
+                    self.isLoading = false
+                    self.errorMessage = "Error: Can't occur registration. Details: \(failure)"
+                    print("Error: Can't occur registration. Details: \(failure)")
+                    completion()
+                }
             }
         }
     }

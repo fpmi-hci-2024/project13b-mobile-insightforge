@@ -27,14 +27,24 @@ extension BaseHttpClient: HTTPClient {
                     completion(.failure(ErrorModel(message: "Invalid HTTP Response")))
                     return
                 }
+                
                 guard let data = response.data else {
-                    completion(.failure(ErrorModel(message: "No data received")))
-                    return
+                    if request.method == .get {
+                        completion(.failure(ErrorModel(message: "No data received")))
+                        return
+                    } else {
+                        completion(.failure(ErrorModel(message: "Registration succeed")))
+                        return
+                    }
                 }
+                
+                print(_response.statusCode)
+                
                 switch _response.statusCode {
                 case (200...299):
                     do {
                         let decodedData: T = try decoder.decode(T.self, from: data)
+                        print("!!!response succed!!!")
                         completion(.success(decodedData))
                     } catch let error {
                         completion(.failure(ErrorModel(message: "Failed to decode server resonse: \(error)")))
@@ -47,7 +57,12 @@ extension BaseHttpClient: HTTPClient {
                         completion(.failure(ErrorModel(message: "Failed to decode error: \(error)")))
                     }
                 case (500...599):
-                    completion(.failure(ErrorModel(message: "Server is down")))
+                    do {
+                        let decodedError = try decoder.decode(ErrorModel.self, from: data)
+                        completion(.failure(decodedError))
+                    } catch let error {
+                        completion(.failure(ErrorModel(message: "Failed to decode error: \(error)")))
+                    }
                 default:
                     completion(.failure(ErrorModel(message: "Request failed")))
                 }

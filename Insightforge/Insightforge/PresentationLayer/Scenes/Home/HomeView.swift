@@ -15,11 +15,6 @@ struct HomeView: View {
     @State var searchRequest: String = ""
 
     let categories = ["Novel", "Self-love", "Science", "Romance"]
-    let books = [
-        Book(title: "Catcher in the Rye", author: "J.D. Salinger", price: "$4.99", imageName: .default),
-        Book(title: "Someone Like You", author: "Roald Dahl", price: "$4.99", imageName: .default),
-        Book(title: "Lord of the Rings", author: "J.R.R. Tolkien", price: "$4.99", imageName: .default)
-    ]
     
     var body: some View {
         NavigationView {
@@ -95,7 +90,7 @@ struct HomeView: View {
                     // Book List
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
-                            ForEach(books) { book in
+                            ForEach(viewModel.books) { book in
                                 BookView(book: book)
                             }
                         }
@@ -109,8 +104,8 @@ struct HomeView: View {
                     // New Arrivals Placeholder
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
-                            BookView(book: books[0])
-                            BookView(book: books[1])
+                            BookView(book: viewModel.books[0])
+                            BookView(book: viewModel.books[1])
                         }
                         .padding(.horizontal)
                     }

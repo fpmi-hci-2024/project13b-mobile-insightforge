@@ -1,14 +1,15 @@
 //
-//  HomeViewModel.swift
+//  CartViewModel.swift
 //  Insightforge
 //
-//  Created by Алексей Зубель on 11.11.24.
+//  Created by Алексей Зубель on 20.12.24.
 //
 
 import Foundation
 
-class HomeViewModel: ObservableObject {
+class CartViewModel: ObservableObject {
     private let router: Router
+    
     @Published var books: [Book] = [
         Book(title: "Catcher in the Rye", author: "J.D. Salinger", price: "$4.99", imageName: .default),
         Book(title: "Someone Like You", author: "Roald Dahl", price: "$4.99", imageName: .default),

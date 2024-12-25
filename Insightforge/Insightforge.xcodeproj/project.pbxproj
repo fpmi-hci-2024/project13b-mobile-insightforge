@@ -266,8 +266,8 @@
 			isa = PBXGroup;
 			children = (
 				7629162C2D1454D60022374F /* Models */,
-				7629162A2D1454D60022374F /* SnakeDecoder.swift */,
 				762916272D1453EF0022374F /* ApiClient.swift */,
+				7629162A2D1454D60022374F /* SnakeDecoder.swift */,
 				762916322D1455750022374F /* HTTPClient.swift */,
 				762916332D1455750022374F /* NetworkHeaders.swift */,
 				762916362D1458A20022374F /* ApiRequest.swift */,

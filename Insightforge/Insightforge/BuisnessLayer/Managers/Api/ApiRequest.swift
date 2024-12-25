@@ -12,7 +12,7 @@ enum SemensApi {
     case register(userName: String, password: String, email: String)
     case login(userName: String, password: String)
 }
-
+    
 extension SemensApi: ApiProtocol {
     struct ApiConstants {
         static let registerPath = "/api/v1/registration"

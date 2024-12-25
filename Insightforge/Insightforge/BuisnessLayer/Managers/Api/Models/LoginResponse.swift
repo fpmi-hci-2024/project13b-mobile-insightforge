@@ -8,9 +8,13 @@
 import Foundation
 
 struct LoginResponse: Codable {
-    let code: String
     let detail: String
     let access_token: String
     let refresh_token: String
+}
 
+struct RegisterResponse: Codable {
+    let detail: String
+    let access_token: String
+    let refresh_token: String
 }

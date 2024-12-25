@@ -32,7 +32,7 @@ struct LoginView: View {
             if let error = viewModel.errorMessage {
                 Text(error)
                     .font(.title3)
-                    .foregroundStyle(error.contains("succeed") ? .FFE_9_D_2 : .red)
+                    .foregroundStyle(.red)
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
                     .frame(height: 50)
@@ -142,11 +142,29 @@ struct LoginView: View {
                 }
                 
                 ContinueActionButton(title: viewModel.isLogin ? "Log in" : "Create Account", titleColor: .white, action: {
-                    viewModel.register(userName: username, password: password, email: email, completion: {
-                        if viewModel.errorMessage == nil || viewModel.errorMessage == "Error: Can't occur registration. Details: Registration succeed" {
-                            viewModel.showHome()
-                        }
-                    })
+                    viewModel.errorMessage = nil
+                    
+                    if viewModel.isLogin {
+                        viewModel.login(
+                            userName: username,
+                            password: password,
+                            completion: {
+                                if viewModel.errorMessage == nil {
+                                    viewModel.showHome()
+                                }
+                            }
+                        )
+                    } else {
+                        viewModel.register(
+                            userName: username,
+                            password: password,
+                            email: email,
+                            completion: {
+                                if viewModel.errorMessage == nil {
+                                    viewModel.showHome()
+                                }
+                        })
+                    }
                 })
                 .padding(.top, 12)
             }

@@ -43,6 +43,9 @@ extension BaseHttpClient: HTTPClient {
                 switch _response.statusCode {
                 case (200...299):
                     do {
+                        if let jsonString = String(data: data, encoding: .utf8) {
+                            print("Полученный JSON: \(jsonString)")
+                        }
                         let decodedData: T = try decoder.decode(T.self, from: data)
                         print("!!!response succed!!!")
                         completion(.success(decodedData))

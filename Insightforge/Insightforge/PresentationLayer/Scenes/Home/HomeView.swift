@@ -21,6 +21,15 @@ struct HomeView: View {
             VStack(alignment: .leading, spacing: 20) {
                 // Header
                 HStack {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "menucard")
+                            .font(.title)
+                            .frame(width: 36, height: 36)
+                            .foregroundStyle(Color.white)
+                    }
+                    
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Hello, Vanya 👋")
                             .font(.title)

@@ -24,10 +24,12 @@ struct TabBar: View {
                     Image(.tabBarLib)
                 }
             
-            Text("Cart")
-                .tabItem {
-                    Image(.tabBarCart)
-                }
+            NavigationStack {
+                CartAssembly().build()
+            }
+            .tabItem {
+                Image(.tabBarCart)
+            }
             
             Text("Marked")
                 .tabItem {

@@ -10,6 +10,7 @@ import Foundation
 enum Route: Hashable {
     case auth
     case authLog(Bool)
+    case bookDescription(Int)
     case home
     case tabBar
 }

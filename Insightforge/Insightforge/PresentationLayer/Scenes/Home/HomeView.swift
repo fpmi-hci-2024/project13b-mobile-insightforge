@@ -31,7 +31,7 @@ struct HomeView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 5) {
-                        Text("Hello, Vanya 👋")
+                        Text("Hello, User 👋")
                             .font(.title)
                             .fontWeight(.bold)
                         Text("What do you want to read today?")
@@ -97,13 +97,24 @@ struct HomeView: View {
                     }
                     
                     // Book List
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 20) {
-                            ForEach(viewModel.books) { book in
-                                BookView(book: book)
+                    ScrollView(.vertical, showsIndicators: false) {
+                        if !viewModel.isLoading {
+                            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 14), count: 2), spacing: 14) {
+                                ForEach(viewModel.books) { book in
+                                    BookView(book: book)
+                                        .onTapGesture {
+                                            viewModel.showBookDescription(book: book.id)
+                                        }
+                                }
+                            }
+                            .padding(.vertical)
+                        } else {
+                            if viewModel.errorMessage != nil {
+                                Text("What do you want to read today?")
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
                             }
                         }
-                        .padding(.horizontal)
                     }
                     
                     Text("New Arrivals")
@@ -113,8 +124,8 @@ struct HomeView: View {
                     // New Arrivals Placeholder
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
-                            BookView(book: viewModel.books[0])
-                            BookView(book: viewModel.books[1])
+//                            BookView(book: viewModel.books[0])
+//                            BookView(book: viewModel.books[1])
                         }
                         .padding(.horizontal)
                     }
@@ -129,8 +140,18 @@ struct HomeView: View {
         }
         .background() {
             Color(.C_48_A_4_B)
+                .opacity(0.3)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
+        }
+        .onAppear() {
+            viewModel.getBooksByPage(page: 0,
+                                     size: 20,
+                                     completion: {
+                                        if viewModel.errorMessage == nil {
+                                            
+                                        }
+                                    })
         }
     }
 }

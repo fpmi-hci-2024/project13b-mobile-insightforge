@@ -22,6 +22,12 @@
 		7629163D2D145EA20022374F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7629163C2D145EA20022374F /* LoginResponse.swift */; };
 		7663507C2CE4E07100DCB46F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7663507B2CE4E07100DCB46F /* Lottie */; };
 		766350832CE4E22300DCB46F /* LaunchLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = 766350822CE4E22300DCB46F /* LaunchLoading.json */; };
+		766E96792D1D7DAE00C460A5 /* BooksByPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766E96782D1D7DAE00C460A5 /* BooksByPageResponse.swift */; };
+		766E967C2D1D8D7800C460A5 /* BookDescriptionAssemly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766E967B2D1D8D7800C460A5 /* BookDescriptionAssemly.swift */; };
+		766E967E2D1D8D8200C460A5 /* BookDescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766E967D2D1D8D8200C460A5 /* BookDescriptionViewModel.swift */; };
+		766E96802D1D8D8D00C460A5 /* BookDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766E967F2D1D8D8D00C460A5 /* BookDescriptionView.swift */; };
+		766E96822D1DB0FC00C460A5 /* AddToCartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766E96812D1DB0FC00C460A5 /* AddToCartResponse.swift */; };
+		766E96842D1DB7BF00C460A5 /* CartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766E96832D1DB7BF00C460A5 /* CartResponse.swift */; };
 		768CCBE82D0C66F50025D2C0 /* ContinueActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768CCBE72D0C66F50025D2C0 /* ContinueActionButton.swift */; };
 		768CCBEB2D0C7E110025D2C0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768CCBEA2D0C7E110025D2C0 /* TabBar.swift */; };
 		768CCBED2D0C7F120025D2C0 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768CCBEC2D0C7F120025D2C0 /* TabBarViewModel.swift */; };
@@ -62,6 +68,12 @@
 		7629163A2D1459280022374F /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		7629163C2D145EA20022374F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		766350822CE4E22300DCB46F /* LaunchLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaunchLoading.json; sourceTree = "<group>"; };
+		766E96782D1D7DAE00C460A5 /* BooksByPageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksByPageResponse.swift; sourceTree = "<group>"; };
+		766E967B2D1D8D7800C460A5 /* BookDescriptionAssemly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDescriptionAssemly.swift; sourceTree = "<group>"; };
+		766E967D2D1D8D8200C460A5 /* BookDescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDescriptionViewModel.swift; sourceTree = "<group>"; };
+		766E967F2D1D8D8D00C460A5 /* BookDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDescriptionView.swift; sourceTree = "<group>"; };
+		766E96812D1DB0FC00C460A5 /* AddToCartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartResponse.swift; sourceTree = "<group>"; };
+		766E96832D1DB7BF00C460A5 /* CartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartResponse.swift; sourceTree = "<group>"; };
 		768CCBE72D0C66F50025D2C0 /* ContinueActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueActionButton.swift; sourceTree = "<group>"; };
 		768CCBEA2D0C7E110025D2C0 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		768CCBEC2D0C7F120025D2C0 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
@@ -206,6 +218,7 @@
 		760A38752CE0EC25005C853C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				766E967A2D1D8D5B00C460A5 /* BookDescription */,
 				76C2A1832D15739100482CBC /* Cart */,
 				768CCBE92D0C7DF90025D2C0 /* TabBar */,
 				769B44CF2CE1ED8A00C50B9F /* Home */,
@@ -281,6 +294,9 @@
 			children = (
 				7629162B2D1454D60022374F /* ErrorModel.swift */,
 				7629163C2D145EA20022374F /* LoginResponse.swift */,
+				766E96782D1D7DAE00C460A5 /* BooksByPageResponse.swift */,
+				766E96812D1DB0FC00C460A5 /* AddToCartResponse.swift */,
+				766E96832D1DB7BF00C460A5 /* CartResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,6 +315,16 @@
 				766350822CE4E22300DCB46F /* LaunchLoading.json */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		766E967A2D1D8D5B00C460A5 /* BookDescription */ = {
+			isa = PBXGroup;
+			children = (
+				766E967B2D1D8D7800C460A5 /* BookDescriptionAssemly.swift */,
+				766E967D2D1D8D8200C460A5 /* BookDescriptionViewModel.swift */,
+				766E967F2D1D8D8D00C460A5 /* BookDescriptionView.swift */,
+			);
+			path = BookDescription;
 			sourceTree = "<group>";
 		};
 		768CCBE92D0C7DF90025D2C0 /* TabBar */ = {
@@ -440,11 +466,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				766E967C2D1D8D7800C460A5 /* BookDescriptionAssemly.swift in Sources */,
 				7629163B2D1459280022374F /* NetworkConstants.swift in Sources */,
 				769B44EB2CE1F50600C50B9F /* HomeViewModel.swift in Sources */,
 				762916342D1455750022374F /* HTTPClient.swift in Sources */,
+				766E967E2D1D8D8200C460A5 /* BookDescriptionViewModel.swift in Sources */,
+				766E96802D1D8D8D00C460A5 /* BookDescriptionView.swift in Sources */,
 				7629163D2D145EA20022374F /* LoginResponse.swift in Sources */,
 				76C2A1872D1573B400482CBC /* CartViewModel.swift in Sources */,
+				766E96792D1D7DAE00C460A5 /* BooksByPageResponse.swift in Sources */,
 				769B44C92CE1EAD500C50B9F /* Router.swift in Sources */,
 				76C2A1892D1573BC00482CBC /* CartView.swift in Sources */,
 				760A38612CE0E945005C853C /* InsightforgeApp.swift in Sources */,
@@ -457,6 +487,7 @@
 				769B44D12CE1EDC000C50B9F /* LaunchAssembly.swift in Sources */,
 				769B44C72CE1EA5400C50B9F /* Book.swift in Sources */,
 				762916372D1458A20022374F /* ApiRequest.swift in Sources */,
+				766E96842D1DB7BF00C460A5 /* CartResponse.swift in Sources */,
 				768CCBEB2D0C7E110025D2C0 /* TabBar.swift in Sources */,
 				769B44DB2CE1F48500C50B9F /* AuthView.swift in Sources */,
 				762916282D1453EF0022374F /* ApiClient.swift in Sources */,
@@ -468,6 +499,7 @@
 				769B44DF2CE1F4BB00C50B9F /* LoginViewModel.swift in Sources */,
 				768CCBED2D0C7F120025D2C0 /* TabBarViewModel.swift in Sources */,
 				769B44D72CE1F46F00C50B9F /* AuthAssembly.swift in Sources */,
+				766E96822D1DB0FC00C460A5 /* AddToCartResponse.swift in Sources */,
 				769B44E12CE1F4CC00C50B9F /* LoginView.swift in Sources */,
 				762916392D1458F30022374F /* AliProtocol.swift in Sources */,
 				769B44D92CE1F47C00C50B9F /* AuthViewModel.swift in Sources */,

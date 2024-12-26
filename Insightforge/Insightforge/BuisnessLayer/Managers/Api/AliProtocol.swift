@@ -32,9 +32,6 @@ extension ApiProtocol {
         request.httpMethod = method.rawValue
         request.timeoutInterval = 60
         
-        print(url)
-        print(request.httpMethod)
-        
         headers.forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }
         
         if method == .get {
@@ -53,6 +50,13 @@ extension ApiProtocol {
                 print("Error: Can't create json request. Details: \(error)")
             }
         }
+        
+        if path == "/api/v1/books/cart/add" {
+            request.httpMethod = HTTPMethod.post.rawValue
+        }
+        
+        print(request.url)
+        print(request.httpMethod)
         
         return request
     }

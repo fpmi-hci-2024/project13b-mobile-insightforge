@@ -31,41 +31,50 @@ struct CartView: View {
             .padding(.horizontal)
             
             ScrollView(.vertical, showsIndicators: false) {
-                ForEach(viewModel.books) { book in
-                    HStack {
-                        BookView(book: book)
-                        
-                        Spacer()
-                        
-                        HStack(spacing: 8) {
-                           Button(action: {
-                              
-                           }) {
-                               Image(systemName: "minus")
-                                   .frame(width: 16, height: 16)
-                                   .padding(8)
-                                   .background(Color.white)
-                                   .clipShape(Circle())
-                           }
-                           
-                           Text("count")
-                               .font(.headline)
-                           
-                           Button(action: {
-                               
-                           }) {
-                               Image(systemName: "plus")
-                                   .frame(width: 16, height: 16)
-                                   .padding(8)
-                                   .background(Color.white)
-                                   .clipShape(Circle())
-                           }
-                       }
+                if let response = viewModel.cartResponse {
+                    ForEach(response.items) { book in
+                        HStack {
+                            BookView(book: BooksByPageResponse.Book(
+                                id: book.book.id,
+                                title: book.book.title,
+                                author: book.book.author.name,
+                                description: nil,
+                                genres: [],
+                                poster: book.book.poster,
+                                price: book.book.price))
+                            
+                            Spacer()
+                            
+                            HStack(spacing: 8) {
+                                Button(action: {
+                                    
+                                }) {
+                                    Image(systemName: "minus")
+                                        .frame(width: 16, height: 16)
+                                        .padding(8)
+                                        .background(Color.white)
+                                        .clipShape(Circle())
+                                }
+                                
+                                Text("count")
+                                    .font(.headline)
+                                
+                                Button(action: {
+                                    
+                                }) {
+                                    Image(systemName: "plus")
+                                        .frame(width: 16, height: 16)
+                                        .padding(8)
+                                        .background(Color.white)
+                                        .clipShape(Circle())
+                                }
+                            }
+                        }
+                        .padding(.horizontal, 24)
                     }
-                    .padding(.horizontal, 24)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical)
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical)
             }
             
             HStack {

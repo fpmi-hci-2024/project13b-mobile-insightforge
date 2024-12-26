@@ -12,9 +12,7 @@ struct TabBar: View {
     
     var body: some View {
         TabView {
-            NavigationStack {
-                HomeAssembly().build()
-            }
+            HomeAssembly().build()
             .tabItem {
                 Image(.tabBarHome)
             }
@@ -24,9 +22,7 @@ struct TabBar: View {
                     Image(.tabBarLib)
                 }
             
-            NavigationStack {
-                CartAssembly().build()
-            }
+            CartAssembly().build()
             .tabItem {
                 Image(.tabBarCart)
             }

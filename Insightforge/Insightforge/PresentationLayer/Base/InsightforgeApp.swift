@@ -21,6 +21,8 @@ struct InsightforgeApp: App {
                             AuthAssembly().build()
                         case .authLog(let isLogin):
                             LoginAssembly().build(isLogin: isLogin)
+                        case .bookDescription(let book):
+                            BookDescriptionAssemly().build(book: book)
                         case .home:
                             HomeAssembly().build()
                         case .tabBar:

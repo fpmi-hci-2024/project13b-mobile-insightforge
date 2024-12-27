@@ -11,6 +11,12 @@ final class Router: ObservableObject {
     static let shared = Router()
     
     @Published var path = [Route]()
+//    {
+//        didSet {
+//            print("Current path: \(path)")
+//        }
+//    }
+    
     
     func showAuth() {
         path.append(.auth)
@@ -18,6 +24,11 @@ final class Router: ObservableObject {
     
     func showAuthLog(isLogin: Bool) {
         path.append(.authLog(isLogin))
+    }
+    
+    func showBookDescription(book: Int) {
+        print("Router")
+        path.append(.bookDescription(book))
     }
     
     func showTabBar() {

@@ -19,9 +19,10 @@ struct LoginView: View {
     @State var password: String = ""
     @State var email: String = ""
     @State var repeatPassword: String = ""
+    @State var isShowLoader: Bool = false
     
     var body: some View {
-        VStack(alignment: .center, spacing: 16) {
+        VStack(alignment: .center, spacing: .zero) {
             Image(.launchAppIcon)
                 .resizable()
                 .scaledToFill()
@@ -29,109 +30,155 @@ struct LoginView: View {
             
             Spacer()
             
-            Text(viewModel.isLogin ? "Log in to your account" : "Create your account")
-                .font(.body)
-                .foregroundStyle(.black)
-            
-            ZStack {
-                Text("Username")
-                    .font(.callout)
-                    .foregroundStyle(.black)
-                    .opacity(username.isEmpty && !isFocusedUsername ? 0.7 : 0)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                    .padding(.horizontal, 16)
+            if let error = viewModel.errorMessage {
+                Text(error)
+                    .font(.title3)
+                    .foregroundStyle(.red)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(2)
+                    .frame(height: 50)
                 
-                TextField(username, text: $username)
-                    .font(.callout)
-                    .foregroundStyle(.black)
-                    .colorMultiply(.white)
-                    .frame(alignment: .leading)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .padding(.horizontal, 16)
-                    .focused($isFocusedUsername)
-            }
-            .frame(height: 52)
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                .foregroundStyle(.FFE_9_D_2)
-            )
-            
-            if !viewModel.isLogin {
-                ZStack {
-                    Text("E-mail")
-                        .font(.callout)
-                        .foregroundStyle(.black)
-                        .opacity(email.isEmpty && !isFocusedEmail ? 0.7 : 0)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                        .padding(.horizontal, 16)
-                    
-                    TextField(email, text: $email)
-                        .font(.callout)
-                        .foregroundStyle(.black)
-                        .colorMultiply(.white)
-                        .frame(alignment: .leading)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .padding(.horizontal, 16)
-                        .focused($isFocusedEmail)
-                }
-                .frame(height: 52)
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundStyle(.FFE_9_D_2)
-                )
+                Spacer()
             }
             
             ZStack {
-                Text("Password")
-                    .font(.callout)
-                    .foregroundStyle(.black)
-                    .opacity(password.isEmpty && !isFocusedPassword ? 0.7 : 0)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                    .padding(.horizontal, 16)
-                
-                TextField(password, text: $password)
-                    .font(.callout)
-                    .foregroundStyle(.black)
-                    .colorMultiply(.white)
-                    .frame(alignment: .leading)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .padding(.horizontal, 16)
-                    .focused($isFocusedPassword)
-            }
-            .frame(height: 52)
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                .foregroundStyle(.FFE_9_D_2)
-            )
-            
-            if !viewModel.isLogin {
-                ZStack {
-                    Text("Repeat password")
-                        .font(.callout)
-                        .foregroundStyle(.black)
-                        .opacity(repeatPassword.isEmpty && !isFocusedPasswordRepeat ? 0.7 : 0)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                        .padding(.horizontal, 16)
-                    
-                    TextField(repeatPassword, text: $repeatPassword)
-                        .font(.callout)
-                        .foregroundStyle(.black)
-                        .colorMultiply(.white)
-                        .frame(alignment: .leading)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .padding(.horizontal, 16)
-                        .focused($isFocusedPasswordRepeat)
+                if isShowLoader {
+                    ProgressView()
+                        .frame(width: 300, height: 300)
                 }
-                .frame(height: 52)
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundStyle(.FFE_9_D_2)
-                )
+                
+                VStack(spacing: 12) {
+                    Text(viewModel.isLogin ? "Log in to your account" : "Create your account")
+                        .font(.body)
+                        .foregroundStyle(.black)
+                    
+                    ZStack {
+                        Text("Username")
+                            .font(.callout)
+                            .foregroundStyle(.black)
+                            .opacity(username.isEmpty && !isFocusedUsername ? 0.7 : 0)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                            .padding(.horizontal, 16)
+                        
+                        TextField(username, text: $username)
+                            .font(.callout)
+                            .foregroundStyle(.black)
+                            .colorMultiply(.white)
+                            .frame(alignment: .leading)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding(.horizontal, 16)
+                            .focused($isFocusedUsername)
+                    }
+                    .frame(height: 52)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundStyle(.FFE_9_D_2)
+                    )
+                    
+                    if !viewModel.isLogin {
+                        ZStack {
+                            Text("E-mail")
+                                .font(.callout)
+                                .foregroundStyle(.black)
+                                .opacity(email.isEmpty && !isFocusedEmail ? 0.7 : 0)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                                .padding(.horizontal, 16)
+                            
+                            TextField(email, text: $email)
+                                .font(.callout)
+                                .foregroundStyle(.black)
+                                .colorMultiply(.white)
+                                .frame(alignment: .leading)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .padding(.horizontal, 16)
+                                .focused($isFocusedEmail)
+                        }
+                        .frame(height: 52)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.FFE_9_D_2)
+                        )
+                    }
+                    
+                    ZStack {
+                        Text("Password")
+                            .font(.callout)
+                            .foregroundStyle(.black)
+                            .opacity(password.isEmpty && !isFocusedPassword ? 0.7 : 0)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                            .padding(.horizontal, 16)
+                        
+                        TextField(password, text: $password)
+                            .font(.callout)
+                            .foregroundStyle(.black)
+                            .colorMultiply(.white)
+                            .frame(alignment: .leading)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding(.horizontal, 16)
+                            .focused($isFocusedPassword)
+                    }
+                    .frame(height: 52)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundStyle(.FFE_9_D_2)
+                    )
+                    
+                    if !viewModel.isLogin {
+                        ZStack {
+                            Text("Repeat password")
+                                .font(.callout)
+                                .foregroundStyle(.black)
+                                .opacity(repeatPassword.isEmpty && !isFocusedPasswordRepeat ? 0.7 : 0)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                                .padding(.horizontal, 16)
+                            
+                            TextField(repeatPassword, text: $repeatPassword)
+                                .font(.callout)
+                                .foregroundStyle(.black)
+                                .colorMultiply(.white)
+                                .frame(alignment: .leading)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .padding(.horizontal, 16)
+                                .focused($isFocusedPasswordRepeat)
+                        }
+                        .frame(height: 52)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.FFE_9_D_2)
+                        )
+                    }
+                    
+                    ContinueActionButton(title: viewModel.isLogin ? "Log in" : "Create Account", titleColor: .white, action: {
+                        viewModel.errorMessage = nil
+                        isShowLoader.toggle()
+                        
+                        if viewModel.isLogin {
+                            viewModel.login(
+                                userName: username,
+                                password: password,
+                                completion: {
+                                    if viewModel.errorMessage == nil {
+                                        viewModel.showHome()
+                                    }
+                                }
+                            )
+                        } else {
+                            viewModel.register(
+                                userName: username,
+                                password: password,
+                                email: email,
+                                completion: {
+                                    if viewModel.errorMessage == nil {
+                                        viewModel.showHome()
+                                    }
+                                })
+                        }
+                    })
+                    .padding(.top, 12)
+                }
             }
             
-            ContinueActionButton(title: viewModel.isLogin ? "Log in" : "Create Account", titleColor: .white, action: {
-                viewModel.showHome()
-            })
+            Spacer()
             
             HStack() {
                 Text(viewModel.isLogin ? "Don't have an account yet?" : "Already have an account?")
@@ -152,6 +199,7 @@ struct LoginView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
         }
+        .navigationBarBackButtonHidden()
     }
 }
 

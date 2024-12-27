@@ -15,19 +15,23 @@ struct HomeView: View {
     @State var searchRequest: String = ""
 
     let categories = ["Novel", "Self-love", "Science", "Romance"]
-    let books = [
-        Book(title: "Catcher in the Rye", author: "J.D. Salinger", price: "$4.99", imageName: .default),
-        Book(title: "Someone Like You", author: "Roald Dahl", price: "$4.99", imageName: .default),
-        Book(title: "Lord of the Rings", author: "J.R.R. Tolkien", price: "$4.99", imageName: .default)
-    ]
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 20) {
                 // Header
                 HStack {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "menucard")
+                            .font(.title)
+                            .frame(width: 36, height: 36)
+                            .foregroundStyle(Color.white)
+                    }
+                    
                     VStack(alignment: .leading, spacing: 5) {
-                        Text("Hello, Vanya 👋")
+                        Text("Hello, User 👋")
                             .font(.title)
                             .fontWeight(.bold)
                         Text("What do you want to read today?")
@@ -43,8 +47,19 @@ struct HomeView: View {
                 
                 // Search Bar
                 HStack {
+                    Button {
+                        if !searchRequest.isEmpty {
+                            viewModel.isLoading = true
+                            viewModel.searchBookByName(searchRequest, completion: {})
+                        }
+                    } label: {
+                        Image(.searchIcon)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                    }
                     ZStack {
-                        Text("Search here")
+                        Text("Search by book title here")
                             .font(.callout)
                             .foregroundStyle(.black)
                             .opacity(searchRequest.isEmpty && !isSearchRequestActive ? 0.6 : 0)
@@ -93,13 +108,24 @@ struct HomeView: View {
                     }
                     
                     // Book List
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 20) {
-                            ForEach(books) { book in
-                                BookView(book: book)
+                    ScrollView(.vertical, showsIndicators: false) {
+                        if !viewModel.isLoading {
+                            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 14), count: 2), spacing: 14) {
+                                ForEach(viewModel.books) { book in
+                                    BookView(book: book)
+                                        .onTapGesture {
+                                            viewModel.showBookDescription(book: book.id)
+                                        }
+                                }
+                            }
+                            .padding(.vertical)
+                        } else {
+                            if viewModel.errorMessage != nil {
+                                Text("What do you want to read today?")
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
                             }
                         }
-                        .padding(.horizontal)
                     }
                     
                     Text("New Arrivals")
@@ -109,8 +135,8 @@ struct HomeView: View {
                     // New Arrivals Placeholder
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
-                            BookView(book: books[0])
-                            BookView(book: books[1])
+//                            BookView(book: viewModel.books[0])
+//                            BookView(book: viewModel.books[1])
                         }
                         .padding(.horizontal)
                     }
@@ -127,6 +153,31 @@ struct HomeView: View {
             Color(.C_48_A_4_B)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
+        }
+        .onChange(of: searchRequest, perform: { value in
+            if value.isEmpty {
+                print("""
+
+    onChangeSearchRequest!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    """)
+                viewModel.getBooksByPage(page: 0,
+                                         size: 20,
+                                         completion: {
+                                            if viewModel.errorMessage == nil {
+                                                
+                                            }
+                                        })
+            }
+        })
+        .onAppear() {
+            viewModel.getBooksByPage(page: 0,
+                                     size: 20,
+                                     completion: {
+                                        if viewModel.errorMessage == nil {
+                                            
+                                        }
+                                    })
         }
     }
 }

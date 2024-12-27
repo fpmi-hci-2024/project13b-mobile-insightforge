@@ -8,15 +8,32 @@
 import SwiftUI
 
 struct BookView: View {
-    let book: Book
+    let book: BooksByPageResponse.Book
     
     var body: some View {
         VStack(alignment: .leading) {
-            Image(book.imageName)
-                .resizable()
-                .scaledToFit()
-                .cornerRadius(10)
-                .frame(height: 150)
+            AsyncImage(url: URL(string: book.poster)) { phase in
+                switch phase {
+                case .empty:
+                    ProgressView()
+                        .scaledToFit()
+                        .cornerRadius(10)
+                        .frame(height: 150, alignment: .center)
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(10)
+                        .frame(height: 150)
+                case .failure:
+                    ProgressView()
+                        .scaledToFit()
+                        .cornerRadius(10)
+                        .frame(height: 150, alignment: .center)
+                @unknown default:
+                    EmptyView()
+                }
+            }
             Text(book.title)
                 .font(.headline)
                 .lineLimit(2)
@@ -24,7 +41,7 @@ struct BookView: View {
             Text(book.author)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
-            Text(book.price)
+            Text("\(book.price)")
                 .font(.caption)
                 .foregroundColor(.secondary)
         }
@@ -32,6 +49,6 @@ struct BookView: View {
     }
 }
 
-#Preview {
-    BookView(book: Book(title: "Book 1", author: "Author 1", price: "1.32", imageName: .default))
-}
+//#Preview {
+//    BookView(book: BooksByPageResponse.Book(title: "Book 1", author: "Author 1", price: "1.32", imageName: .default))
+//}

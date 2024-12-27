@@ -59,6 +59,7 @@ struct AuthView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
         }
+        .navigationBarBackButtonHidden()
     }
 }
 

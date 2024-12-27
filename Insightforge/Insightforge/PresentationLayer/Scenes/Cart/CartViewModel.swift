@@ -40,4 +40,32 @@ class CartViewModel: ObservableObject {
             }
         }
     }
+    
+    func removeBookFromCart(id: Int, completion: @escaping () -> Void) {
+        httpClient.send(request: SemensApi.removeBookFromCart(id: id).request, decoder: JSONDecoder()) { (result: Result<CartResponse, ErrorModel>) in
+            switch result {
+            case .success(let response):
+                completion()
+            case .failure(let failure):
+                self.errorMessage = "Error: Can't get cart from server. Details: \(failure)"
+                self.isLoading = false
+                print("Error: Can't get cart from server. Details: \(failure)")
+                completion()
+            }
+        }
+    }
+    
+    func addToCart(book: Int, completion: @escaping () -> Void) {
+        httpClient.send(request: SemensApi.addToCart(book: book, quantity: 1).request, decoder: JSONDecoder()) { (result: Result<AddToCartResponse, ErrorModel>) in
+            switch result {
+            case .success(let response):
+                completion()
+            case .failure(let failure):
+                self.errorMessage = "Error: Can't add book to cart. Details: \(failure)"
+                self.isLoading = false
+                print("Error: Can't add book to cart. Details: \(failure)")
+                completion()
+            }
+        }
+    }
 }

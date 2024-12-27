@@ -16,6 +16,7 @@ enum SemensApi {
     case addToCart(book: Int, quantity: Int)
     case getCart
     case searchBookByName(title: String)
+    case removeBookFromCart(id: Int)
 }
     
 extension SemensApi: ApiProtocol {
@@ -27,6 +28,8 @@ extension SemensApi: ApiProtocol {
         static let addToCart = "/api/v1/books/cart/add"
         static let getCart = "/api/v1/books/cart"
         static let searchBookByName = "/api/v1/books"
+        static let removeBookFromCart = "/api/v1/books/cart/remove"
+
     }
     
     var baseUrl: URL {
@@ -49,6 +52,8 @@ extension SemensApi: ApiProtocol {
             return ApiConstants.getCart
         case .searchBookByName:
             return ApiConstants.searchBookByName
+        case .removeBookFromCart:
+            return ApiConstants.removeBookFromCart
         }
     }
     
@@ -67,6 +72,8 @@ extension SemensApi: ApiProtocol {
         case .getCart:
             return .get
         case .searchBookByName:
+            return .get
+        case .removeBookFromCart:
             return .get
         }
     }
@@ -106,6 +113,10 @@ extension SemensApi: ApiProtocol {
             return [
                 "title": title,
             ]
+        case .removeBookFromCart(let id):
+            return [
+                "bookId": id
+            ]
         }
     }
     
@@ -138,6 +149,10 @@ extension SemensApi: ApiProtocol {
                 "Authorization": "\(getAccessToken() ?? "no token")"
             ]
         case .searchBookByName(_):
+            return [
+                "Authorization": "\(getAccessToken() ?? "no token")"
+            ]
+        case .removeBookFromCart(_):
             return [
                 "Authorization": "\(getAccessToken() ?? "no token")"
             ]

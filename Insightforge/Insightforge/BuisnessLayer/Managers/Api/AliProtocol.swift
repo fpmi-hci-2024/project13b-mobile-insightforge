@@ -51,7 +51,11 @@ extension ApiProtocol {
             }
         }
         
-        if path == "/api/v1/books/cart/add" {
+        if (path == "/api/v1/books/cart/add") {
+            request.httpMethod = HTTPMethod.post.rawValue
+        }
+        
+        if (path == "/api/v1/books/cart/remove") {
             request.httpMethod = HTTPMethod.post.rawValue
         }
         

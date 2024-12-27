@@ -151,7 +151,6 @@ struct HomeView: View {
         }
         .background() {
             Color(.C_48_A_4_B)
-                .opacity(0.3)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
         }

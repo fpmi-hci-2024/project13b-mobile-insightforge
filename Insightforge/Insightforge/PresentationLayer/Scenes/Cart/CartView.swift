@@ -33,46 +33,65 @@ struct CartView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 if let response = viewModel.cartResponse {
                     ForEach(response.items) { book in
-                        HStack {
-                            BookView(book: BooksByPageResponse.Book(
-                                id: book.book.id,
-                                title: book.book.title,
-                                author: book.book.author,
-                                description: nil,
-                                genres: [],
-                                poster: book.book.poster,
-                                price: book.book.price))
-                            
-                            Spacer()
-                            
-                            HStack(spacing: 8) {
-                                Button(action: {
-                                    
-                                }) {
-                                    Image(systemName: "minus")
-                                        .frame(width: 16, height: 16)
-                                        .padding(8)
-                                        .background(Color.white)
-                                        .clipShape(Circle())
-                                }
+                        ZStack(alignment: .center) {
+                            if viewModel.isLoading {
+                                ProgressView()
+                                    .frame(width: 200, height: 200)
+                            }
+
+                            HStack {
+                                BookView(book: BooksByPageResponse.Book(
+                                    id: book.book.id,
+                                    title: book.book.title,
+                                    author: book.book.author,
+                                    description: nil,
+                                    genres: [],
+                                    poster: book.book.poster,
+                                    price: book.book.price))
                                 
-                                Text("\(book.quantity)")
-                                    .font(.headline)
+                                Spacer()
                                 
-                                Button(action: {
+                                HStack(spacing: 8) {
+                                    Button(action: {
+                                        viewModel.isLoading = true
+                                        viewModel.removeBookFromCart(id: book.book.id, completion: {
+                                            viewModel.getCart{
+                                                
+                                            }
+                                        })
+                                        
+                                    }) {
+                                        Image(systemName: "minus")
+                                            .frame(width: 16, height: 16)
+                                            .foregroundStyle(._3_D_2000)
+                                            .padding(8)
+                                            .background(Color.white)
+                                            .clipShape(Circle())
+                                    }
                                     
-                                }) {
-                                    Image(systemName: "plus")
-                                        .frame(width: 16, height: 16)
-                                        .padding(8)
-                                        .background(Color.white)
-                                        .clipShape(Circle())
+                                    Text("\(book.quantity)")
+                                        .font(.headline)
+                                    
+                                    Button(action: {
+                                        viewModel.isLoading = true
+                                        viewModel.addToCart(book: book.book.id, completion: {
+                                            viewModel.getCart{
+                                                
+                                            }
+                                        })
+                                    }) {
+                                        Image(systemName: "plus")
+                                            .frame(width: 16, height: 16)
+                                            .foregroundStyle(._3_D_2000)
+                                            .padding(8)
+                                            .background(Color.white)
+                                            .clipShape(Circle())
+                                    }
                                 }
                             }
-                        }
-                        .background() {
-                            RoundedRectangle(cornerRadius: 12)
-                                .background(Color._3_D_2000)
+                            .background() {
+                                Color.white.opacity(0.3).ignoresSafeArea()
+                            }
                         }
                         .padding(.horizontal, 24)
                     }
@@ -85,9 +104,11 @@ struct CartView: View {
                 VStack(alignment: .leading) {
                     Text("Total")
                         .font(.headline)
-                    Text("count")
-                        .font(.title)
-                        .fontWeight(.bold)
+                    if let response = viewModel.cartResponse {
+                        Text("\(response.items.count)")
+                            .font(.title)
+                            .fontWeight(.bold)
+                    }
                 }
                 Spacer()
                 Button(action: {

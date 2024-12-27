@@ -7,57 +7,26 @@
 
 import Foundation
 
-struct CartResponse: Codable {
+struct CartResponse: Codable, Identifiable, Hashable {
     let id: Int
-    let orderDate: String
-    let user: User
-    let items: [CartItem]
+    let items: [Item]
 }
 
-// MARK: - User
-struct User: Codable {
+// MARK: - Item
+struct Item: Codable, Identifiable, Hashable {
     let id: Int
-    let username: String
-    let password: String
-    let roles: [Role]
-    let email: String
-    let enabled: Bool
-}
-
-// MARK: - Role
-struct Role: Codable {
-    let id: Int
-    let title: String
-}
-
-// MARK: - CartItem
-struct CartItem: Codable, Identifiable {
-    let id: Int
-    let quantity: Int
-    let order: String
     let book: Book
+    let quantity: Int
 }
 
 // MARK: - Book
-struct Book: Codable {
+struct Book: Codable, Identifiable, Hashable {
     let id: Int
     let title: String
+    let author: String
     let description: String
+    let genres: [String]
     let poster: String
-    let author: Author
-    let genres: [Genre]
-    let stock: Int
-}
-
-// MARK: - Author
-struct Author: Codable {
-    let id: Int
-    let name: String
-    let books: [String]
-}
-
-// MARK: - Genre
-struct Genre: Codable {
-    let id: Int
-    let name: String
+    let price: Int
+    let count: Int
 }

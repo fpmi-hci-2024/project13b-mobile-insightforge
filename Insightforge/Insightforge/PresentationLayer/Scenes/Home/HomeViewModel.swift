@@ -37,6 +37,23 @@ class HomeViewModel: ObservableObject {
         }
     }
     
+    func searchBookByName(_ title: String, completion: @escaping () -> Void) {
+        httpClient.send(request: SemensApi.searchBookByName(title: title).request, decoder: JSONDecoder()) { (result: Result<[BooksByPageResponse.Book], ErrorModel>) in
+            switch result {
+            case .success(let response):
+                self.books = response
+                print("books count \(self.books.count)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                self.isLoading = false
+                completion()
+            case .failure(let failure):
+                self.errorMessage = "Error: Can't get book by name from server. Details: \(failure)"
+                self.isLoading = false
+                print("Error: Can't get book by name from server. Details: \(failure)")
+                completion()
+            }
+        }
+    }
+    
     func showBookDescription(book: Int) {
         print("home screen")
         router.showBookDescription(book: book)

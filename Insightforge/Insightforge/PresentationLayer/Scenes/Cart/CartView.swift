@@ -37,7 +37,7 @@ struct CartView: View {
                             BookView(book: BooksByPageResponse.Book(
                                 id: book.book.id,
                                 title: book.book.title,
-                                author: book.book.author.name,
+                                author: book.book.author,
                                 description: nil,
                                 genres: [],
                                 poster: book.book.poster,
@@ -56,7 +56,7 @@ struct CartView: View {
                                         .clipShape(Circle())
                                 }
                                 
-                                Text("count")
+                                Text("\(book.quantity)")
                                     .font(.headline)
                                 
                                 Button(action: {
@@ -69,6 +69,10 @@ struct CartView: View {
                                         .clipShape(Circle())
                                 }
                             }
+                        }
+                        .background() {
+                            RoundedRectangle(cornerRadius: 12)
+                                .background(Color._3_D_2000)
                         }
                         .padding(.horizontal, 24)
                     }
@@ -109,6 +113,11 @@ struct CartView: View {
                 .ignoresSafeArea(.all)
         }
         .navigationBarHidden(true)
+        .onAppear() {
+            viewModel.getCart {
+                
+            }
+        }
     }
 }
 

@@ -218,6 +218,7 @@
 		760A38752CE0EC25005C853C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				766E96852D1ECA9000C460A5 /* Settings */,
 				766E967A2D1D8D5B00C460A5 /* BookDescription */,
 				76C2A1832D15739100482CBC /* Cart */,
 				768CCBE92D0C7DF90025D2C0 /* TabBar */,
@@ -325,6 +326,13 @@
 				766E967F2D1D8D8D00C460A5 /* BookDescriptionView.swift */,
 			);
 			path = BookDescription;
+			sourceTree = "<group>";
+		};
+		766E96852D1ECA9000C460A5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		768CCBE92D0C7DF90025D2C0 /* TabBar */ = {

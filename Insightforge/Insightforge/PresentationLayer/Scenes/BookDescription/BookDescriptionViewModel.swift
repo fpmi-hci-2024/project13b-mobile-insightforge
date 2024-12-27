@@ -46,9 +46,9 @@ class BookDescriptionViewModel: ObservableObject {
                 self.isLoading = false
                 completion()
             case .failure(let failure):
-                self.errorMessage = "Error: Can't get books from server. Details: \(failure)"
+                self.errorMessage = "Error: Can't add book to cart. Details: \(failure)"
                 self.isLoading = false
-                print("Error: Can't get books from server. Details: \(failure)")
+                print("Error: Can't add book to cart. Details: \(failure)")
                 completion()
             }
         }

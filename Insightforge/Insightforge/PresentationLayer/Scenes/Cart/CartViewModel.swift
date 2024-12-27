@@ -25,16 +25,17 @@ class CartViewModel: ObservableObject {
         self.router = router
     }
     
-    func addToCart(completion: @escaping () -> Void) {
+    func getCart(completion: @escaping () -> Void) {
         httpClient.send(request: SemensApi.getCart.request, decoder: JSONDecoder()) { (result: Result<CartResponse, ErrorModel>) in
             switch result {
             case .success(let response):
                 self.isLoading = false
+                self.cartResponse = response
                 completion()
             case .failure(let failure):
-                self.errorMessage = "Error: Can't get books from server. Details: \(failure)"
+                self.errorMessage = "Error: Can't get cart from server. Details: \(failure)"
                 self.isLoading = false
-                print("Error: Can't get books from server. Details: \(failure)")
+                print("Error: Can't get cart from server. Details: \(failure)")
                 completion()
             }
         }

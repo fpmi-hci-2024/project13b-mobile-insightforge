@@ -47,8 +47,19 @@ struct HomeView: View {
                 
                 // Search Bar
                 HStack {
+                    Button {
+                        if !searchRequest.isEmpty {
+                            viewModel.isLoading = true
+                            viewModel.searchBookByName(searchRequest, completion: {})
+                        }
+                    } label: {
+                        Image(.searchIcon)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                    }
                     ZStack {
-                        Text("Search here")
+                        Text("Search by book title here")
                             .font(.callout)
                             .foregroundStyle(.black)
                             .opacity(searchRequest.isEmpty && !isSearchRequestActive ? 0.6 : 0)
@@ -144,6 +155,22 @@ struct HomeView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
         }
+        .onChange(of: searchRequest, perform: { value in
+            if value.isEmpty {
+                print("""
+
+    onChangeSearchRequest!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    """)
+                viewModel.getBooksByPage(page: 0,
+                                         size: 20,
+                                         completion: {
+                                            if viewModel.errorMessage == nil {
+                                                
+                                            }
+                                        })
+            }
+        })
         .onAppear() {
             viewModel.getBooksByPage(page: 0,
                                      size: 20,
